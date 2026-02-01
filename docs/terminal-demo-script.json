@@ -1,0 +1,256 @@
+{
+  "version": "2.0",
+  "scenarios": {
+    "search_demo": {
+      "meta": {
+        "title": "Search YouTube Videos",
+        "description": "Search for videos with filters",
+        "duration_ms": 10000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "find some videos about MCP"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll search YouTube for MCP-related videos."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_search",
+          "params": "query: \"MCP Model Context Protocol\", max_results: 3, order: relevance"
+        },
+        {
+          "type": "tool_result",
+          "items": [
+            { "title": "What is MCP? Integrate AI Agents with Databases & APIs", "channel": "IBM Technology", "views": "-", "duration": "-" },
+            { "title": "The Model Context Protocol (MCP)", "channel": "Anthropic", "views": "-", "duration": "-" },
+            { "title": "Model Context Protocol (MCP), Clearly Explained", "channel": "Builders Central", "views": "-", "duration": "-" }
+          ]
+        },
+        {
+          "type": "assistant",
+          "content": "I found **3** MCP-related videos:\n\n1. **What is MCP?** by IBM Technology\n2. **The Model Context Protocol (MCP)** by Anthropic\n3. **Model Context Protocol (MCP), Clearly Explained** by Builders Central\n\nWant more details on any of these?"
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "video_details_demo": {
+      "meta": {
+        "title": "Get Video Details",
+        "description": "Retrieve detailed video information",
+        "duration_ms": 12000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "https://www.youtube.com/watch?v=AJpK3YTTKZ4 summarize this for me"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll get the video details and summarize it for you."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_get_video",
+          "params": "video_id: AJpK3YTTKZ4, part: snippet,statistics"
+        },
+        {
+          "type": "tool_result",
+          "single": true,
+          "content": "Title: Introducing Claude Code\nChannel: Anthropic (UCrDwWp7EBBv4NwvScIpBDOA)\n\nStatistics:\n  Views: 792,295\n  Likes: 19,458\n  Comments: 1,757\n\nPublished: 2025-02-24\nDescription: We're launching Claude Code, our agentic coding tool, in a limited research preview..."
+        },
+        {
+          "type": "assistant",
+          "content": "Here are the video details:\n\n**Introducing Claude Code**\n\n- **Channel**: Anthropic\n- **Views**: 792,295\n- **Likes**: 19,458\n- **Comments**: 1,757\n- **Published**: February 24, 2025\n\n**Summary**: This video introduces Claude Code, Anthropic's agentic coding tool that lets developers delegate engineering tasks directly from their terminal."
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "transcript_demo": {
+      "meta": {
+        "title": "Get Video Transcript",
+        "description": "Extract transcript with timestamps",
+        "duration_ms": 10000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "https://www.youtube.com/watch?v=AJpK3YTTKZ4 give me the transcript"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll fetch the transcript for this video."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_get_transcript",
+          "params": "video_id: AJpK3YTTKZ4, language: en"
+        },
+        {
+          "type": "tool_result",
+          "single": true,
+          "content": "Transcript (first 5 segments):\n\n[00:00] \"We're launching Claude Code, our agentic coding tool...\"\n[00:05] \"Claude Code lets developers delegate substantial engineering tasks...\"\n[00:12] \"Claude Code has already become indispensable for our team.\"\n[00:18] \"In early testing, Claude completed tasks in one pass...\"\n[00:24] \"With Claude Code, our goal is to better understand...\"\n\n... (500+ more segments) | Full transcript available"
+        },
+        {
+          "type": "assistant",
+          "content": "I got the transcript - this video has over **500 segments**.\n\nHere's the beginning:\n\n> \"We're launching Claude Code, our agentic coding tool...\"\n> \"Claude Code lets developers delegate substantial engineering tasks...\"\n> \"Claude Code has already become indispensable for our team.\"\n\nWant me to find something specific in the transcript?"
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "comments_demo": {
+      "meta": {
+        "title": "Get Video Comments",
+        "description": "Fetch comments with pagination",
+        "duration_ms": 10000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "https://www.youtube.com/watch?v=AJpK3YTTKZ4 what do people think?"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll fetch the comments on this video."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_get_comments",
+          "params": "video_id: AJpK3YTTKZ4, max_results: 3"
+        },
+        {
+          "type": "tool_result",
+          "items": [
+            { "title": "This is exactly what I needed! Claude Code is a game changer.", "channel": "Likes: 1,234 | Recent", "views": "" },
+            { "title": "Finally, an AI coding assistant that actually understands codebases!", "channel": "Likes: 856 | Recent", "views": "" },
+            { "title": "The demo video blew my mind. This is the future of coding.", "channel": "Likes: 642 | Recent", "views": "" }
+          ]
+        },
+        {
+          "type": "assistant",
+          "content": "Here's what people are saying:\n\n1. **User123** (1,234 likes)\n   > \"This is exactly what I needed! Claude Code is a game changer.\"\n\n2. **DevPro** (856 likes)\n   > \"Finally, an AI coding assistant that actually understands codebases!\"\n\n3. **FutureCoder** (642 likes)\n   > \"The demo video blew my mind. This is the future of coding.\"\n\nPeople are really excited about Claude Code!"
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "channel_demo": {
+      "meta": {
+        "title": "Get Channel Info",
+        "description": "Retrieve channel statistics",
+        "duration_ms": 9000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "https://www.youtube.com/@anthropic-ai how many subscribers?"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll check Anthropic's subscriber count."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_get_channel",
+          "params": "channel_id: UCrDwWp7EBBv4NwvScIpBDOA"
+        },
+        {
+          "type": "tool_result",
+          "single": true,
+          "content": "Channel: Anthropic\nID: UCrDwWp7EBBv4NwvScIpBDOA\n\nStatistics:\n  Subscribers: 366K\n  Total Views: 12.7M\n  Total Videos: 165\n\nCreated: 2023-06-15\nCountry: US\nCustom URL: @anthropic-ai"
+        },
+        {
+          "type": "assistant",
+          "content": "Here's the info for **Anthropic**:\n\n- **Subscribers**: 366K\n- **Total Views**: 12.7M\n- **Videos**: 165\n- **Created**: June 15, 2023\n- **Country**: United States\n- **Custom URL**: @anthropic-ai\n\nThis is Anthropic's official YouTube channel."
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "playlist_demo": {
+      "meta": {
+        "title": "Get Playlist Details",
+        "description": "Retrieve playlist and video list",
+        "duration_ms": 10000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "https://www.youtube.com/playlist?list=PLf2m23nhTg1NjL3-jL3s0qZCYzO07ZQPv show me the videos"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll fetch the AI Fluency course playlist."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_get_playlist",
+          "params": "playlist_id: PLf2m23nhTg1NjL3-jL3s0qZCYzO07ZQPv, max_results: 5"
+        },
+        {
+          "type": "tool_result",
+          "single": true,
+          "content": "Playlist: AI Fluency Course\nChannel: Anthropic\nVideos: 12\n\nVideos (showing 5 of 12):\n1. AI Fluency: Framework & Foundations Course Trailer\n2. Lesson 1: Introduction to AI Fluency\n3. Lesson 2A: Why do we need AI Fluency?\n4. Lesson 2B: How AI Fluency works\n5. Lesson 3: Defining your AI goals"
+        },
+        {
+          "type": "assistant",
+          "content": "Here are the playlist details:\n\n**AI Fluency Course** by Anthropic\n\n- **12 videos** total\n\nFirst 5 videos:\n1. AI Fluency: Framework & Foundations Course Trailer\n2. Lesson 1: Introduction to AI Fluency\n3. Lesson 2A: Why do we need AI Fluency?\n4. Lesson 2B: How AI Fluency works\n5. Lesson 3: Defining your AI goals\n\nWant more videos from this playlist?"
+        },
+        {
+          "delay_ms": 1500
+        }
+      ]
+    },
+
+    "quick_search_demo": {
+      "meta": {
+        "title": "Quick Search",
+        "description": "Fast search demo",
+        "duration_ms": 6000
+      },
+      "steps": [
+        {
+          "type": "user",
+          "content": "find the Claude Code intro video"
+        },
+        {
+          "type": "assistant",
+          "content": "I'll search for the Claude Code introduction video."
+        },
+        {
+          "type": "tool_call",
+          "tool": "youtube_search",
+          "params": "query: \"claude code\", max_results: 1"
+        },
+        {
+          "type": "tool_result",
+          "items": [
+            { "title": "Introducing Claude Code", "channel": "Anthropic", "views": "-", "duration": "-" }
+          ]
+        },
+        {
+          "type": "assistant",
+          "content": "Found: **Introducing Claude Code**\n\n- Channel: Anthropic\n\nWant more details on this video?"
+        },
+        {
+          "delay_ms": 1000
+        }
+      ]
+    }
+  }
+}

@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# YouTube Connector MCP - Website
 
-## Getting Started
+Landing page for the [YouTube Connector MCP](https://github.com/ShellyDeng08/youtube-connector-mcp) server.
 
-First, run the development server:
+## Tech Stack
+
+- **Next.js 16** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS v4** - Utility-first styling
+- **shadcn/ui** - Pre-built accessible components
+- **Lucide Icons** - Beautiful icon set
+
+## Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This site is configured for static export and deployment to [Vercel](https://vercel.com).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Deploy to Vercel
 
-## Learn More
+1. Push this repository to GitHub
+2. Connect the repo to Vercel
+3. Vercel auto-detects Next.js and deploys
 
-To learn more about Next.js, take a look at the following resources:
+### Manual Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+# Upload the `out/` folder to your hosting provider
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/                 # Next.js app directory
+├── layout.tsx     # Root layout with fonts and theme
+├── page.tsx       # Main landing page
+└── globals.css     # Global styles
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+components/
+├── ui/            # shadcn/ui components
+├── Hero.tsx        # Hero section
+├── Demo.tsx         # Interactive terminal demo
+├── Features.tsx     # Bento grid features
+├── Installation.tsx  # Installation steps
+└── Footer.tsx       # Site footer
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT License - See the parent project [license](https://github.com/ShellyDeng08/youtube-connector-mcp/blob/main/LICENSE).
