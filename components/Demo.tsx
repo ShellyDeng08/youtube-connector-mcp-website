@@ -115,9 +115,14 @@ export function Demo() {
       if (i % 3 === 0) {
         await sleep(speed);
       }
-    }
 
-    terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+      // Scroll to bottom after DOM update (safeguard against ref being null)
+      requestAnimationFrame(() => {
+        if (terminalRef.current) {
+          terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+        }
+      });
+    }
   }
 
   async function executeStep(step: Step, index: number, total: number): Promise<void> {
@@ -249,7 +254,9 @@ export function Demo() {
     const startDiv = document.createElement("div");
     startDiv.className = "text-center py-4 text-slate-500 text-sm";
     startDiv.innerHTML = '<span class="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Starting demo...';
-    terminalRef.current.appendChild(startDiv);
+    if (terminalRef.current) {
+      terminalRef.current.appendChild(startDiv);
+    }
     await sleep(1000);
     startDiv.remove();
 

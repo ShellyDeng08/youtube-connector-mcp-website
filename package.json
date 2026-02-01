@@ -2,6 +2,7 @@
   "name": "youtube-connector-mcp-website",
   "version": "0.1.0",
   "private": true,
+  "author": "xuelian.deng",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
