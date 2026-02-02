@@ -10,8 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date("2025-01-01"),
-      changeFrequency: "monthly",
+      // 使用当前日期，告诉 Google 这是一个活跃更新的项目
+      lastModified: new Date(),
+      // 改为 weekly，吸引爬虫更频繁地光顾
+      changeFrequency: "weekly",
       priority: 1,
     },
   ];
