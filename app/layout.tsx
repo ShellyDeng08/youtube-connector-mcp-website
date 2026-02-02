@@ -76,10 +76,10 @@ export default function RootLayout({
                 price: "0",
                 priceCurrency: "USD",
               },
-              downloadUrl: "https://github.com/ShellyDeng08/youtube-connector-mcp",
+              downloadUrl: process.env.NEXT_PUBLIC_REPO_URL || "https://github.com/ShellyDeng08/youtube-connector-mcp",
               author: {
                 "@type": "Person",
-                name: "xuelian.deng",
+                name: process.env.NEXT_PUBLIC_AUTHOR_NAME || "xuelian.deng",
               },
             }),
           }}
