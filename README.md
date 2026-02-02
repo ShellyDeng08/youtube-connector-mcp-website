@@ -1,6 +1,13 @@
 # YouTube Connector MCP - Website
 
-Landing page for the [YouTube Connector MCP](https://github.com/ShellyDeng08/youtube-connector-mcp) server.
+**Landing page for the [YouTube Connector MCP](https://github.com/ShellyDeng08/youtube-connector-mcp) server.**
+
+`youtube-connector-mcp-website` showcases the MCP server for **YouTube Data API v3**, allowing AI agents like **Claude, Cursor, Cline, Windsurf, Continue.dev, Grapes AI** to interact with YouTube programmatically.
+
+🌐 **Live Demo**: https://youtube-connector-mcp-website.vercel.app/  
+📦 **Server Repo**: https://github.com/ShellyDeng08/youtube-connector-mcp
+
+---
 
 ## Tech Stack
 
@@ -33,16 +40,19 @@ This site is configured for static export and deployment to [Vercel](https://ver
 ### Deploy to Vercel (Recommended)
 
 1. **Install Vercel CLI** (one-time setup)
+
    ```bash
    npm i -g vercel
    ```
 
 2. **Login to Vercel**
+
    ```bash
    vercel login
    ```
 
 3. **Deploy your site**
+
    ```bash
    # From this directory
    vercel --prod
@@ -83,6 +93,7 @@ The demo scenarios in `docs/terminal-demo-script.json` are populated with **real
 - **Playlist**: AI Fluency course playlist with actual video list
 
 To update demo data:
+
 1. Run the actual MCP tools to get fresh results
 2. Update the `terminal-demo-script.json` file with new data
 3. The demo component uses this JSON for playback
@@ -115,17 +126,21 @@ lib/
 
 The website documents these available tools from the MCP server:
 
-| Tool | Description | Example |
-|------|-------------|---------|
-| `youtube_search` | Search videos, channels, playlists | `youtube_search("query", { maxResults: 3 })` |
-| `youtube_get_video` | Get video metadata, statistics | `youtube_get_video("ID", ["snippet", "statistics"])` |
-| `youtube_get_channel` | Get channel information | `youtube_get_channel(channel_id)` |
-| `youtube_get_transcript` | Get video transcript with timestamps | `youtube_get_transcript("ID", "en")` |
-| `youtube_get_comments` | Fetch video comments | `youtube_get_comments("ID", { maxResults: 3 })` |
-| `youtube_get_playlist` | Get playlist details and videos | `youtube_get_playlist("ID", { maxResults: 5 })` |
-| `youtube_list_playlists` | List all playlists for a channel | `youtube_list_playlists(channel_id)` |
+| Tool                     | Description                          | Example                                              |
+| ------------------------ | ------------------------------------ | ---------------------------------------------------- |
+| `youtube_search`         | Search videos, channels, playlists   | `youtube_search("query", { maxResults: 3 })`         |
+| `youtube_get_video`      | Get video metadata, statistics       | `youtube_get_video("ID", ["snippet", "statistics"])` |
+| `youtube_get_channel`    | Get channel information              | `youtube_get_channel(channel_id)`                    |
+| `youtube_get_transcript` | Get video transcript with timestamps | `youtube_get_transcript("ID", "en")`                 |
+| `youtube_get_comments`   | Fetch video comments                 | `youtube_get_comments("ID", { maxResults: 3 })`      |
+| `youtube_get_playlist`   | Get playlist details and videos      | `youtube_get_playlist("ID", { maxResults: 5 })`      |
+| `youtube_list_playlists` | List all playlists for a channel     | `youtube_list_playlists(channel_id)`                 |
 
 > **Note**: Analytics API is **not available** - it requires OAuth authentication which isn't supported by the simple API key approach used by this MCP server.
+
+## SEO Keywords
+
+YouTube MCP Website, YouTube MCP Server, MCP Connector, Claude MCP YouTube, Cursor MCP YouTube, AI YouTube API, Model Context Protocol YouTube
 
 ## License
 
