@@ -7,12 +7,7 @@ interface GitHubRepoResponse {
   stargazers_count: number
 }
 
-interface StarCountProps {
-  owner?: string
-  repo?: string
-}
-
-export function StarCount({ owner = "ShellyDeng08", repo = "youtube-connector-mcp" }: StarCountProps) {
+export function StarCount({ owner = "ShellyDeng08", repo = "youtube-connector-mcp" }: { owner?: string; repo?: string }) {
   const [stars, setStars] = useState<number | null>(null)
   const [error, setError] = useState(false)
 
