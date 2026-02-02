@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Github } from "lucide-react";
 import Link from "next/link";
+import { StarCount } from "@/components/StarCount";
 
 export function Hero() {
   return (
@@ -51,6 +52,7 @@ export function Hero() {
             <Link href="https://github.com/ShellyDeng08/youtube-connector-mcp" target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-5 w-5" />
               View on GitHub
+              <StarCount />
             </Link>
           </Button>
         </div>
