@@ -61,6 +61,29 @@ export default function RootLayout({
         className={`${ibmPlex.variable} ${jetbrainsMono.variable} antialiased bg-slate-950 text-slate-50`}
       >
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "YouTube Connector MCP",
+              description: "Connect AI tools to YouTube Data API. Search videos, get details, fetch transcripts, comments, playlists, and more.",
+              applicationCategory: "DeveloperApplication",
+              operatingSystem: "Cross-platform",
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "USD",
+              },
+              downloadUrl: "https://github.com/ShellyDeng08/youtube-connector-mcp",
+              author: {
+                "@type": "Person",
+                name: "xuelian.deng",
+              },
+            }),
+          }}
+        />
       </body>
     </html>
   );
